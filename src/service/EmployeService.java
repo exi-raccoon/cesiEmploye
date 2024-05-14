@@ -7,9 +7,12 @@ import java.sql.Statement;
 
 import business.IEmployeService;
 import dataAccess.DbConnection;
+import dataAccess.IDbConnection;
 
 public class EmployeService implements IEmployeService {
-	private static Connection con = DbConnection.connectToDb();
+	private IDbConnection _connection = new DbConnection();
+
+	private Connection con = _connection.connectToDb();
 
 	// fonction pour ne pas réécrire les colonnes à chaque fois
 	public static void showTableEmploye(ResultSet result, ResultSetMetaData rsmd) throws Exception {
