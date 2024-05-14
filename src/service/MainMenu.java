@@ -3,13 +3,14 @@ package service;
 import java.util.Scanner;
 
 import business.IEmployeService;
+import business.IMainMenu;
 
-public class MainMenu {
+public class MainMenu implements IMainMenu {
 	// utilisation du scanner pour capter les input de la console
 	private static final Scanner scanner = new Scanner(System.in);
 	private static IEmployeService _employeService = new EmployeService();
 
-	public static void mainMenu() {
+	public void mainMenu() {
 		boolean running = true;
 		while (running) {
 			System.out.println("\n___ Main Menu ___");
