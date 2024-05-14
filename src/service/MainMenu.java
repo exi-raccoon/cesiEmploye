@@ -98,7 +98,7 @@ public class MainMenu implements IMainMenu {
 				System.out.print("S'agit-il d'un poste actif ? f/t ");
 				String b = scanner.nextLine();
 				b = scanner.nextLine();
-				// pas besoin de taper False ou True, mais juste f ou t
+				// no need to type true or false, t or f suffice
 				if (b.equals("f")) {
 					Boolean boolActif = false;
 					_employeeService.AddEmployee(option, z, a, boolActif);
@@ -143,7 +143,7 @@ public class MainMenu implements IMainMenu {
 				System.out.println("S'agit-il d'un poste actif ? f/t ");
 				String b = scanner.nextLine();
 				b = scanner.nextLine();
-				// pas besoin de taper False ou True, mais juste f ou t
+				// no need to type true or false, t or f suffice
 				if (b.equals("f")) {
 					Boolean boolActif = false;
 					_employeeService.UpdateEmployee(option, y, z, a, boolActif);
