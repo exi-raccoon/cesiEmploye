@@ -2,14 +2,20 @@ package service;
 
 import java.util.Scanner;
 
-import business.IEmployeService;
+import business.IEmployeeService;
+import business.IMainMenu;
 
-public class MainMenu {
-	// utilisation du scanner pour capter les input de la console
+public class MainMenu implements IMainMenu {
+	// scanner allows to catch input in console
 	private static final Scanner scanner = new Scanner(System.in);
-	private static IEmployeService _employeService = new EmployeService();
 
-	public static void mainMenu() {
+	// inversion of dependencies between MainMenu and EmployeeService
+	private static IEmployeeService _employeeService = new EmployeeService();
+
+	// display in console the main menu
+	// no parameter
+	// void
+	public void mainMenu() {
 		boolean running = true;
 		while (running) {
 			System.out.println("\n___ Main Menu ___");
@@ -21,20 +27,19 @@ public class MainMenu {
 			System.out.print("Selectionnez une option: ");
 
 			int option = scanner.nextInt();
-			scanner.nextLine(); // Consume the newline left-over
 
 			switch (option) {
 			case 1:
-				menuAfficherEmploye();
+				menuDisplayEmploye();
 				break;
 			case 2:
-				menuAjouterEmploye();
+				menuAddEmploye();
 				break;
 			case 3:
-				menuMAJEmploye();
+				menuUpdateEmploye();
 				break;
 			case 4:
-				menuSupprimerEmploye();
+				menuRemoveEmploye();
 				break;
 			case 5:
 				running = false;
@@ -46,7 +51,10 @@ public class MainMenu {
 		}
 	}
 
-	private static void menuAfficherEmploye() {
+	// display in console the menu to choose to see the infos of which employee
+	// no parameter
+	// void
+	private static void menuDisplayEmploye() {
 		boolean back = false;
 		while (!back) {
 			System.out.println("\n___ Afficher un employé ___");
@@ -54,20 +62,22 @@ public class MainMenu {
 			System.out.print("Selectionnez un identifiant : ");
 
 			int option = scanner.nextInt();
-			scanner.nextLine();
 
 			switch (option) {
 			case 0:
 				back = true;
 				break;
 			default:
-				_employeService.AfficherEmploye(option);
+				_employeeService.DisplayEmployee(option);
 			}
 
 		}
 	}
 
-	private static void menuAjouterEmploye() {
+	// display in console the menu to add an employee
+	// no parameter
+	// void
+	private static void menuAddEmploye() {
 		boolean back = false;
 		while (!back) {
 			System.out.println("\n___ Ajouter un employé ___");
@@ -81,7 +91,6 @@ public class MainMenu {
 				back = true;
 				break;
 			default:
-				// String vide = scanner.nextLine();
 				System.out.print("Poste : ");
 				String z = scanner.nextLine();
 				System.out.print("Salaire : ");
@@ -92,11 +101,11 @@ public class MainMenu {
 				// pas besoin de taper False ou True, mais juste f ou t
 				if (b.equals("f")) {
 					Boolean boolActif = false;
-					_employeService.AjouterEmploye(option, z, a, boolActif);
+					_employeeService.AddEmployee(option, z, a, boolActif);
 				} else {
 					if (b.equals("t")) {
 						Boolean boolActif = true;
-						_employeService.AjouterEmploye(option, z, a, boolActif);
+						_employeeService.AddEmployee(option, z, a, boolActif);
 					}
 
 				}
@@ -107,7 +116,10 @@ public class MainMenu {
 		}
 	}
 
-	private static void menuMAJEmploye() {
+	// display in console the menu to update an employee
+	// no parameter
+	// void
+	private static void menuUpdateEmploye() {
 		boolean back = false;
 		while (!back) {
 			System.out.println("\n___ Mettre à jour un employé ___");
@@ -134,11 +146,11 @@ public class MainMenu {
 				// pas besoin de taper False ou True, mais juste f ou t
 				if (b.equals("f")) {
 					Boolean boolActif = false;
-					_employeService.MAJEmploye(option, y, z, a, boolActif);
+					_employeeService.UpdateEmployee(option, y, z, a, boolActif);
 				} else {
 					if (b.equals("t")) {
 						Boolean boolActif = true;
-						_employeService.MAJEmploye(option, y, z, a, boolActif);
+						_employeeService.UpdateEmployee(option, y, z, a, boolActif);
 					}
 
 				}
@@ -148,7 +160,10 @@ public class MainMenu {
 		}
 	}
 
-	private static void menuSupprimerEmploye() {
+	// display in console the menu to remove an employee
+	// no parameter
+	// void
+	private static void menuRemoveEmploye() {
 		boolean back = false;
 		while (!back) {
 			System.out.println("\n___ Supprimer un employé ___");
@@ -163,7 +178,7 @@ public class MainMenu {
 				back = true;
 				break;
 			default:
-				_employeService.SupprimerEmploye(option);
+				_employeeService.RemoveEmployee(option);
 			}
 
 		}
