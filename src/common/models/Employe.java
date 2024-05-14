@@ -8,9 +8,9 @@ public class Employe {
 
 	private String Post;
 
-	private Double Salary;
+	private int Salary;
 
-	private int CreatedBy;
+	private boolean Active;
 
 	public Employe() {
 	}
@@ -39,20 +39,20 @@ public class Employe {
 		Post = post;
 	}
 
-	public Double GetSalary() {
+	public int GetSalary() {
 		return Salary;
 	}
 
-	public void SetSalary(Double salary) {
+	public void SetSalary(int salary) {
 		Salary = salary;
 	}
 
-	public int GetCreatedBy() {
-		return CreatedBy;
+	public boolean IsActive() {
+		return Active;
 	}
 
-	public void SetCreatedBy(int createdBy) {
-		CreatedBy = createdBy;
+	public void SetActive(boolean active) {
+		Active = active;
 	}
 
 }
