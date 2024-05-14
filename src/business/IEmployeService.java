@@ -1,18 +1,13 @@
 package business;
 
-import java.util.List;
-
-import common.models.Employe;
-import common.resources.EmployeResource;
-
 public interface IEmployeService {
-	public String Add(EmployeResource employeResource);
 
-	public String Update(EmployeResource employeResource);
+	public void AjouterEmploye(String name, String post, Double salary, boolean active);
 
-	public String Remove(int id);
+	public void MAJEmploye(int id, String name, String post, Double salary, boolean active);
 
-	public Employe GetById(int id);
+	public void SupprimerEmploye(int id);
 
-	public List<Employe> GetAll();
+	public void AfficherEmploye(int id);
+
 }
