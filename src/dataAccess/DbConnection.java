@@ -3,12 +3,12 @@ package dataAccess;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DbConnection {
+public class DbConnection implements IDbConnection {
 	static final String DB_URL = "jdbc:postgresql://localhost:5432/crudemploye";
 	static final String USER = "postgres";
 	static final String PASSWORD = "admin123";
 
-	public static Connection connectToDb() {
+	public Connection connectToDb() {
 		Connection con = null;
 
 		try {
