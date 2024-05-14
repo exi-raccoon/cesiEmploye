@@ -1,19 +1,10 @@
-package common.models;
+package common.resources;
 
-public class Employe {
-
+public class EmployeResource {
 	private int Id;
-
 	private String Name;
-
 	private String Post;
-
 	private Double Salary;
-
-	private int CreatedBy;
-
-	public Employe() {
-	}
 
 	public int GetId() {
 		return Id;
@@ -46,13 +37,4 @@ public class Employe {
 	public void SetSalary(Double salary) {
 		Salary = salary;
 	}
-
-	public int GetCreatedBy() {
-		return CreatedBy;
-	}
-
-	public void SetCreatedBy(int createdBy) {
-		CreatedBy = createdBy;
-	}
-
 }
