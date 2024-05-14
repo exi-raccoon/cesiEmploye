@@ -75,42 +75,42 @@ public class MainMenu {
 			System.out.print("Selectionnez un nom prénom : ");
 
 			String option = scanner.nextLine();
-			scanner.nextLine();
 
 			switch (option) {
 			case "back":
 				back = true;
 				break;
 			default:
-				System.out.println("Nom Prénom : ");
-				String y = scanner.nextLine();
-				System.out.println("Poste : ");
+				// String vide = scanner.nextLine();
+				System.out.print("Poste : ");
 				String z = scanner.nextLine();
-				System.out.println("Salaire : ");
-				Double a = scanner.nextDouble();
-				System.out.println("S'agit-il d'un poste actif ? f/t ");
+				System.out.print("Salaire : ");
+				int a = scanner.nextInt();
+				System.out.print("S'agit-il d'un poste actif ? f/t ");
 				String b = scanner.nextLine();
+				b = scanner.nextLine();
 				// pas besoin de taper False ou True, mais juste f ou t
 				if (b.equals("f")) {
 					Boolean boolActif = false;
-					_employeService.AjouterEmploye(y, z, a, boolActif);
+					_employeService.AjouterEmploye(option, z, a, boolActif);
 				} else {
 					if (b.equals("t")) {
 						Boolean boolActif = true;
-						_employeService.AjouterEmploye(y, z, a, boolActif);
+						_employeService.AjouterEmploye(option, z, a, boolActif);
 					}
 
 				}
 				break;
 
 			}
+			back = true;
 		}
 	}
 
 	private static void menuMAJEmploye() {
 		boolean back = false;
 		while (!back) {
-			System.out.println("\n___ Ajouter un employé ___");
+			System.out.println("\n___ Mettre à jour un employé ___");
 			System.out.println("(tapez 0 pour revenir en arrière");
 			System.out.print("Selectionnez un identifiant : ");
 
@@ -127,9 +127,10 @@ public class MainMenu {
 				System.out.println("Poste : ");
 				String z = scanner.nextLine();
 				System.out.println("Salaire : ");
-				Double a = scanner.nextDouble();
+				int a = scanner.nextInt();
 				System.out.println("S'agit-il d'un poste actif ? f/t ");
 				String b = scanner.nextLine();
+				b = scanner.nextLine();
 				// pas besoin de taper False ou True, mais juste f ou t
 				if (b.equals("f")) {
 					Boolean boolActif = false;

@@ -1,13 +1,11 @@
 package app;
 
-import java.sql.Connection;
-
-import dataAccess.DbConnection;
+import service.MainMenu;
 
 public class Launcher {
 
 	public static void main(String[] args) {
-		Connection con = DbConnection.connectToDb();
+		MainMenu.mainMenu();
 	}
 
 }

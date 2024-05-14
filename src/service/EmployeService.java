@@ -28,11 +28,11 @@ public class EmployeService implements IEmployeService {
 	}
 
 	@Override
-	public void AjouterEmploye(String name, String post, Double salary, boolean active) {
+	public void AjouterEmploye(String name, String post, int salary, boolean active) {
 		Statement stm;
 		try {
 			String query = String.format(
-					"INSERT INTO employe (name, post, salary, active) VALUES ('%s','%s',%d, %b) ON CONFLICT DO NOTHING;",
+					"INSERT INTO employe (name, post, salary, active) VALUES ('%s','%s', %d, %b) ON CONFLICT DO NOTHING;",
 					name, post, salary, active);
 			stm = con.createStatement();
 			stm.executeUpdate(query);
@@ -43,7 +43,7 @@ public class EmployeService implements IEmployeService {
 	}
 
 	@Override
-	public void MAJEmploye(int id, String name, String post, Double salary, boolean active) {
+	public void MAJEmploye(int id, String name, String post, int salary, boolean active) {
 		Statement stm;
 
 		try {
@@ -78,7 +78,7 @@ public class EmployeService implements IEmployeService {
 		ResultSetMetaData rsmd;
 		try {
 			stm = con.createStatement();
-			String query = "SELECT * WHERE id_employe = " + id + ";";
+			String query = "SELECT * FROM employe WHERE id_employe = " + id + ";";
 			result = stm.executeQuery(query);
 			rsmd = result.getMetaData();
 			showTableEmploye(result, rsmd);
