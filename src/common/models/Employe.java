@@ -8,7 +8,7 @@ public class Employe {
 
 	private String Post;
 
-	private Double Salary;
+	private int Salary;
 
 	private boolean Active;
 
@@ -39,11 +39,11 @@ public class Employe {
 		Post = post;
 	}
 
-	public Double GetSalary() {
+	public int GetSalary() {
 		return Salary;
 	}
 
-	public void SetSalary(Double salary) {
+	public void SetSalary(int salary) {
 		Salary = salary;
 	}
 
